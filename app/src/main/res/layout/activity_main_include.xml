@@ -1,0 +1,128 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:visibility="gone"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        <include layout="@layout/include_main_tab_bar"/>
+    </android.support.design.widget.AppBarLayout>
+    <FrameLayout
+        android:id="@+id/frame_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/frameMenu"
+        android:layout_below="@+id/appbar" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <!-- webview -->
+
+            <FrameLayout
+                android:id="@+id/layout_webview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_webview"
+                    android:layout_gravity="bottom|center"
+                    android:text="看看"
+                    android:textColor="@color/colorAccentDim"
+                    android:textSize="10sp" />
+
+                <ImageView
+                    android:id="@+id/bt_webview"
+                    android:layout_marginBottom="6dp"
+                    android:layout_width="29dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:src="@animator/skin_baiduyun_select" />
+            </FrameLayout>
+
+            <!-- 主页 -->
+
+            <FrameLayout
+                android:id="@+id/layout_home"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+                <TextView
+                    android:id="@+id/txt_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="主 页"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="10sp" />
+                <ImageView
+                    android:id="@+id/bt_home"
+                    android:layout_marginBottom="6dp"
+                    android:layout_width="29dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:src="@animator/skin_home_select" />
+
+            </FrameLayout>
+
+
+            <!-- 收藏 -->
+
+            <FrameLayout
+                android:id="@+id/layout_store"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+                <TextView
+                    android:id="@+id/txt_store"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="收 藏"
+                    android:textColor="@color/colorAccentDim"
+                    android:textSize="10sp" />
+                <ImageView
+                    android:id="@+id/bt_store"
+                    android:layout_marginBottom="6dp"
+                    android:layout_width="29dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:src="@animator/skin_store_select" />
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorCursor" >
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

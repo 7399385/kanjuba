@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/homefr_logo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="70dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/textIplayout"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/homefr_logo"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tiet_search"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:hint="输入剧名"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorCursor" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="280dp"
+            android:id="@+id/acbt_search"
+            android:layout_below="@+id/textIplayout"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_corner_bg"
+            android:layout_centerHorizontal="true"
+            android:text="点我搜索"
+            android:textColor="@color/white"/>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/button_from_local"
+            android:layout_width="280dp"
+            android:layout_below="@+id/acbt_search"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_from_local_bg"
+            android:layout_centerHorizontal="true"
+            android:text="从本地打开视频"
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+
+</FrameLayout>

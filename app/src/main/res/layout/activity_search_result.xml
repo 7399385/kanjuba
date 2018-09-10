@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <!--Toolbar-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="56dp"
+            android:paddingTop="22dp"
+            android:visibility="gone"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"/>
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:fitsSystemWindows="true"
+                android:minHeight="?attr/actionBarSize">
+
+                <TextView
+                    android:id="@+id/toolbar_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_common" />
+                <ImageView
+                    android:id="@+id/iv_change_interface"
+                    android:src="@drawable/add"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="22dp" />
+            </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <com.diegodobelo.expandingview.ExpandingList
+        android:id="@+id/expanding_list_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize" />
+    <include
+        android:id="@+id/ll_loading"
+        layout="@layout/include_loading"
+        android:visibility="gone"
+        tools:ignore="IncludeLayoutParam" />
+    <LinearLayout
+        android:id="@+id/not_find_404"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/not_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="或者相关资源未找到!"
+                android:textColor="@color/colorAccent" />
+            <TextView
+                android:layout_above="@+id/not_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="(゜-゜)Sorry网络错误"
+                android:textColor="@color/colorAccent" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:orientation="vertical"-->
+    <!--android:id="@+id/search_result_recycler_view_linerlayout"-->
+    <!--android:layout_marginTop="?attr/actionBarSize"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--</LinearLayout>-->
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/search_result_recycler_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_marginTop="?attr/actionBarSize"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:clipChildren="false"-->
+    <!--android:clipToPadding="false"-->
+    <!--android:scrollbars="vertical" />-->
+
+</android.support.constraint.ConstraintLayout>

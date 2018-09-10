@@ -1,0 +1,74 @@
+
+<com.lzp.floatingactionbuttonplus.FloatingActionButtonPlus
+    android:id="@+id/FabPlus"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:position="right_bottom"
+    app:switchFabColor="@color/colorAccent"
+    app:switchFabIcon="@drawable/add"
+    app:layout_behavior="com.lzp.floatingactionbuttonplus.FabBehavior"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.lzp.floatingactionbuttonplus.FabTagLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tagText="@string/fab_home">
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_home"
+            app:backgroundTint="#ff9800"
+            app:fabSize="mini" />
+    </com.lzp.floatingactionbuttonplus.FabTagLayout>
+
+    <com.lzp.floatingactionbuttonplus.FabTagLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tagText="@string/fab_refresh">
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_refresh"
+            app:backgroundTint="#4284E4"
+            app:fabSize="mini" />
+    </com.lzp.floatingactionbuttonplus.FabTagLayout>
+
+    <com.lzp.floatingactionbuttonplus.FabTagLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tagText="@string/fab_resovle">
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_resolve"
+            app:backgroundTint="#4BB7A7"
+            app:fabSize="mini" />
+    </com.lzp.floatingactionbuttonplus.FabTagLayout>
+
+    <com.lzp.floatingactionbuttonplus.FabTagLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tagText="@string/fab_back">
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrowleft"
+            app:backgroundTint="#818aa7"
+            app:fabSize="mini" />
+    </com.lzp.floatingactionbuttonplus.FabTagLayout>
+
+    <com.lzp.floatingactionbuttonplus.FabTagLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tagText="@string/fab_foreward">
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrowright"
+            app:backgroundTint="#468cb7"
+            app:fabSize="mini" />
+    </com.lzp.floatingactionbuttonplus.FabTagLayout>
+
+
+</com.lzp.floatingactionbuttonplus.FloatingActionButtonPlus>

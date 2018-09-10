@@ -1,0 +1,29 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <me.mile.kjb.view.X5WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/activity_webvideo_fab"
+        android:src="@drawable/ic_resolve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"/>
+    </me.mile.kjb.view.X5WebView>
+    <include
+        android:id="@+id/ll_loading"
+        layout="@layout/include_loading"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        tools:ignore="IncludeLayoutParam" />
+    <include layout="@layout/fw_interface_bottom"/>
+</RelativeLayout>

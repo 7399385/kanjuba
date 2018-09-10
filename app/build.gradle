@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        // ... and any other excludes go here
+    }
+    defaultConfig {
+        applicationId "me.mile.kjb"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+//        buildConfigField 'String', 'BUGLY_APP_ID', getLocalValue("BUGLY_APP_ID", true)
+
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips","arm64-v8a"
+            manifestPlaceholders = [XG_ACCESS_ID:"2100277908",
+                                    XG_ACCESS_KEY : "A71FTQ5J76XK"
+            ]
+        }
+
+
+        dexOptions {
+            javaMaxHeapSize "4g"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+def getLocalValue(String key) {
+    return getLocalValue(key, false)
+}
+
+def getLocalValue(String key, boolean quot) {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def value = properties.containsKey(key) ? properties.get(key) : ""
+    if (quot) {
+        value = "\"" + value + "\""
+    }
+    return value
+}
+
+greendao {
+    schemaVersion 1
+    targetGenDir 'src/main/java'
+    daoPackage 'me.wcy.music.storage.db.greendao'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
+    implementation "com.android.support:design:${rootProject.ext.supportVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'me.wcy:lrcview:2.0.1'
+    implementation 'com.hwangjr.rxbus:rxbus:1.0.6'
+    implementation 'org.greenrobot:greendao:3.2.2'
+
+    implementation 'com.diegodobelo.expandingview:expanding-view:0.9.4'
+    implementation 'com.zaaach:toprightmenu:1.1.2'
+    implementation 'org.jsoup:jsoup:1.9.2'
+    implementation 'com.github.guoxiaoxing:phoenix:1.0.1'
+    implementation 'com.jakewharton:butterknife:8.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.1.0'
+    implementation 'com.lzp.floatingactionbutton:floatingactionbuttonplus:1.0.0'
+
+    //信鸽jar
+    compile 'com.tencent.xinge:xinge:3.2.2-release'
+//wup包
+    compile 'com.tencent.wup:wup:1.0.0.E-release'
+//mid包
+    compile 'com.tencent.mid:mid:4.0.6-release'
+
+    //bugly
+    compile 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+
+}

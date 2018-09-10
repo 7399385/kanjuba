@@ -1,0 +1,96 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="tvDataBean"
+            type="com.zhu.sohnia.bean.TvDataBean" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/ripple_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginRight="8dp"-->
+            <!--android:layout_marginTop="4dp"-->
+            <!--android:background="@drawable/bg_parent_rounded_corner"-->
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="16dp"
+                android:src="@mipmap/zhu"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/avatar"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{tvDataBean.tvtitle}"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/avatar"
+                android:text="@{@string/update_state+tvDataBean.state}"
+                android:textColor="#9d9e9f"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/tv_state"
+                android:text="· "
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/tv_separator"
+                android:singleLine="true"
+                android:text="@{tvDataBean.label+@string/label}"
+                android:textColor="#9d9e9f"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_state"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/avatar"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{tvDataBean.tvInfo}"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </FrameLayout>
+</layout>

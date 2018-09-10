@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">@android:color/white</color>
+    <color name="white_8p">#14FFFFFF</color>
+    <color name="white_16p">#29FFFFFF</color>
+    <color name="white_24p">#3DFFFFFF</color>
+    <color name="white_50p">#80FFFFFF</color>
+    <color name="white_96p">#F5FFFFFF</color>
+    <color name="black">@android:color/black</color>
+    <color name="black_50p">#80000000</color>
+    <color name="red">#F44336</color>
+    <color name="red_30p">#4CF44336</color>
+    <color name="blue">#2196F3</color>
+    <color name="grey">#9E9E9E</color>
+    <color name="grey_50p">#809E9E9E</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_700_96p">#F5616161</color>
+    <color name="grey_300_96p">#F5E0E0E0</color>
+    <color name="grey_900">#212121</color>
+    <color name="grey_900_96p">#F5212121</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#F44336</color>
+    <color name="colorAccentDim">#4CF44336</color>
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="text">#FFFFFF</color>
+    <color name="default_color">#02a6d8</color>
+    <color name="default_color_dark">#52a6b8</color>
+    <color name="color_red">#FF0000</color>
+    <color name="list_divider_line">#e7e7e7</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="blue001">#477fe6</color>
+    <color name="bt_from_local_bg">#9ada23</color>
+
+    <color name="colorCursor">#cccccc</color>
+
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+
+
+    <color name="pink">#FF308E</color>
+    <color name="orange">#FA9301</color>
+    <color name="yellow">#F8D411</color>
+
+    <color name="purple">#6F26FA</color>
+    <color name="green">#49CC56</color>
+
+</resources>
