@@ -34,7 +34,7 @@ public class X5WebView extends WebView {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
 				//屏蔽调起
-				if(url.contains("iqiyi:")||url.contains("tenvideo2:")||url.contains("item-apps:")||url.contains("youku:")||url.contains("letv:")||url.contains("pptv")||url.contains("sohu:")) Log.d("视频app尝试调起","已阻止");
+				if(url.contains("qyjbscheme:")||url.contains("iqiyi:")||url.contains("jsbridge:")||url.contains("tenvideo2:")||url.contains("item-apps:")||url.contains("youku:")||url.contains("letv:")||url.contains("pptv")||url.contains("sohu:")) Log.d("视频app尝试调起","已阻止");
 				else if(url.contains("alipays:")||url.contains("wtloginmqq")){
 					Intent intent;
 					try {

@@ -1,5 +1,6 @@
 package me.mile.kjb.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +12,11 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,7 +38,7 @@ public class HomeFragment extends Fragment {
     private int REQUEST_CODE = 0x000111;
     @BindView(R.id.tiet_search) TextInputEditText textInputEditText;
     @BindView(R.id.acbt_search) AppCompatButton acbt_search;
-
+	@BindView(R.id.fragment_home_root)FrameLayout frameLayout;
     @BindView(R.id.button_from_local) AppCompatButton bt_from_local;
 
 	@Override
@@ -98,10 +102,25 @@ public class HomeFragment extends Fragment {
 //		}
 //	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view= inflater.inflate(R.layout.fragment_home, null);
         ButterKnife.bind(this,view);
+		frameLayout.setOnTouchListener((v, event) -> {
+
+            frameLayout.setFocusable(true);
+            frameLayout.setFocusableInTouchMode(true);
+            frameLayout.requestFocus();
+
+            InputMethodManager imm= (InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE);
+
+            if (imm.isActive()){
+                //imm.toggleSoftInput(0,InputMethodManager.HIDE_NOT_ALWAYS);//如果是现实则隐藏，如果是隐藏则显示
+                imm.hideSoftInputFromWindow(acbt_search.getWindowToken(),0);
+            }
+            return false;
+        });
 		return view;
 	}
 

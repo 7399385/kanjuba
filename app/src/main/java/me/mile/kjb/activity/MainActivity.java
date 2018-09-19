@@ -1,6 +1,8 @@
 package me.mile.kjb.activity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
@@ -17,6 +19,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -147,12 +151,49 @@ public class MainActivity extends BaseActivity implements IMainActivity, Navigat
         }
         super.onCreate(savedInstanceState);
         getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        fixToolbar();
         initView();
         handler.postDelayed(() -> checkFirst(),2000);
 //        Log.i("info", DeviceUtils.getDeviceToken(this));
 
+    }
+    private void fixToolbar(){
+        ViewGroup.LayoutParams params = toolbar.getLayoutParams();
+        int statusBarHeight = getStatusBarHeight(this);
+        params.height += statusBarHeight;
+        Log.i("wxf","1:"+params.height);
+        Log.i("wxf","2:"+statusBarHeight);
+        toolbar.setLayoutParams(params);
+//        2.设置paddingTop，以达到状态栏不遮挡toolbar的内容。
+        toolbar.setPadding(toolbar.getPaddingLeft(),
+                toolbar.getPaddingTop() + getStatusBarHeight(this),
+                toolbar.getPaddingRight(),
+                toolbar.getPaddingBottom());
+    }
+
+    /**
+     * 获取状态栏的高度
+     *
+     * @param context
+     * @return
+     */
+    private int getStatusBarHeight(Context context) {
+        // 反射手机运行的类：android.R.dimen.status_bar_height.
+        int statusHeight = -1;
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            Object object = clazz.newInstance();
+            String heightStr = clazz.getField("status_bar_height").get(object).toString();
+            int height = Integer.parseInt(heightStr);
+            //dp--->px 因为padding的单位是px
+            statusHeight = context.getResources().getDimensionPixelSize(height);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return statusHeight;
     }
 
     public void initView() {

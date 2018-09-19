@@ -7,6 +7,6 @@ import me.mile.kjb.model.TvDataBean;
 
 public interface ISearchResultActivity {
 
-    public void addToStore(String filename, TvDataBean tvDataBean);
-    public void deletStore(String filename);
+    void addToStore(String filename, TvDataBean tvDataBean);
+    void deletStore(String filename);
 }
